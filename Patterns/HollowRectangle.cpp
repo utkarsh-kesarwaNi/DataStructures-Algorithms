@@ -11,11 +11,11 @@ using namespace std;
 
 void solve(int rows, int columns)
 {
-    for (int i = 0; i < rows; i++)
+    FOR(i, rows)
     {
         if (i == 0 || i == rows - 1)
         {
-            for (int col = 0; col < columns; col++)
+            FOR(col, columns)
             {
                 cout << "* ";
             }
@@ -23,7 +23,7 @@ void solve(int rows, int columns)
         else
         {
             cout << "* ";
-            for (int i = 0; i < columns - 2; i++)
+            FOR(i, columns - 2)
             {
                 cout << "  ";
             }

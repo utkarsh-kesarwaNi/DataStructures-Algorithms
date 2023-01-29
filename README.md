@@ -1,3 +1,2 @@
-# DataStructures-Algorithms
-
+# Data Structures-Algorithms
 C++

@@ -1,2 +1,2 @@
-# DataStructures-Algorithms
-Learning
+# DataStructures and algorithms
+Learn logic building using C++

@@ -1,3 +1,4 @@
+//Set the kth bit for a given number
 #include <iostream>
 using namespace std;
 

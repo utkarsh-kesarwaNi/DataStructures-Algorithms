@@ -9,6 +9,7 @@ vector<int> pairWithSum(vector<int> v1, int targetSum) {
       if (v1[i] + v1[j] == targetSum) {
         ans.push_back(v1[i]);
         ans.push_back(v1[j]);
+        break;
       }
     }
   }

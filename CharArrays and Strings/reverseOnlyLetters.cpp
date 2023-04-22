@@ -2,21 +2,21 @@
 #include <stack>
 using namespace std;
 
-string reverseOnlyLetters(string s) {
-  stack<int> st;
-  for (int i = 0; i < s.size(); i++) {
-    if ((s[i] >= 'A' && s[i] <= 'Z') || (s[i] >= 'a' && s[i] <= 'z')) {
-      st.push(s[i]);
+string reverseOnlyLetters(string S) {
+  int l = 0;
+  int r = S.size();
+  while (l < r) {
+    if (!isalpha(S[l])) {
+      l++;
+    } else if (!isalpha(S[r - 1])) {
+      r--;
+    } else {
+      swap(S[l], S[r - 1]);
+      l++;
+      r--;
     }
   }
-
-  for (int i = 0; i < s.size(); i++) {
-    if ((s[i] >= 'A' && s[i] <= 'Z') || (s[i] >= 'a' && s[i] <= 'z')) {
-      s[i] = st.top();
-      st.pop();
-    }
-  }
-  return s;
+  return S;
 }
 int main() {
   string s = "a!@b-cdemx";

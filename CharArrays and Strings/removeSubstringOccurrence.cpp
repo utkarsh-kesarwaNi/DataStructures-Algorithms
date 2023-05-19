@@ -11,6 +11,19 @@ string removeSubstringOccurrence(string &s, string &part) {
   return s;
 }
 
+// Recursive solution
+void removeOccurrences(string &s, string &part) {
+  int position = s.find(part);
+  if (position == string::npos) {
+    return;
+  }
+  string left = s.substr(0, position);
+  string right = s.substr(position + part.length(), s.length());
+  s = left + right;
+
+  removeOccurrences(s, part);
+}
+
 int main() {
   string s = "India is my country. New Delhi is the capital of India";
   string part = "India";

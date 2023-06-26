@@ -38,6 +38,9 @@ void mergeSortedArrays(vector<int> &arr, int start, int end) {
   while (partTwoIndex < len2) {
     arr[mainArrayIndex++] = partTwo[partTwoIndex++];
   }
+
+  delete[] partOne;
+  delete[] partTwo;
 }
 
 void mergeSort(vector<int> &arr, int start, int end) {
@@ -53,7 +56,7 @@ void mergeSort(vector<int> &arr, int start, int end) {
 }
 
 int main() {
-  vector<int> arr{38, 20, -27, 43, 35, -9, 20};
+  vector<int> arr{38, 20, -7, 43, 5, -9, 20, 13, 10, 10, 12, 34,38,100};
   int start = 0, end = arr.size() - 1;
   mergeSort(arr, start, end);
 

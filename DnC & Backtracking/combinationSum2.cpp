@@ -1,5 +1,5 @@
 #include <iostream>
-#include <limits.h>
+#include <algorithm>
 #include <vector>
 using namespace std;
 void findCombinations(vector<int> &candidates, int target,
@@ -11,14 +11,18 @@ void findCombinations(vector<int> &candidates, int target,
   if (target < 0) {
     return;
   }
-  for(int i = index; i < candidates.size(); i++){
+  for (int i = index; i < candidates.size(); i++) {
+    if (i > index && candidates[i] == candidates[i - 1]) {
+      continue;
+    }
     v.push_back(candidates[i]);
-    findCombinations(candidates, target - candidates[i], ans, v, index);
+    findCombinations(candidates, target - candidates[i], ans, v, i + 1);
     v.pop_back();
   }
 }
 
-vector<vector<int>> combinationSum(vector<int> &candidates, int target) {
+vector<vector<int>> combinationSum2(vector<int> &candidates, int target) {
+  sort(candidates.begin(), candidates.end());
   vector<vector<int>> ans;
   vector<int> v;
   int index = 0;
@@ -28,8 +32,8 @@ vector<vector<int>> combinationSum(vector<int> &candidates, int target) {
 
 int main() {
   vector<int> arr{2, 3, 4, 7, 8};
-  int target = 9;
-  vector<vector<int>> ans = combinationSum(arr, target);
+  int target = 11;
+  vector<vector<int>> ans = combinationSum2(arr, target);
   for (int i = 0; i < ans.size(); i++) {
     for (int j = 0; j < ans[0].size(); j++) {
       cout << ans[i][j] << " ";
